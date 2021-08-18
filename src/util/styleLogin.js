@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import logo from '../assets/support.jpg';
 
 const styleLogin = ()=>{
     return makeStyles((theme) => ({
@@ -6,7 +7,8 @@ const styleLogin = ()=>{
             height: '100vh',
         },
         image: {
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            //backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: `url(${logo})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor:
                 theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],

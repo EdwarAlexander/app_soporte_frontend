@@ -50,7 +50,7 @@ function Login() {
                             color="primary"
                             className={classes.submit}
                         >
-                        Sign In
+                        Ingresar
                         </Button>
                     </form>
                 </div>
