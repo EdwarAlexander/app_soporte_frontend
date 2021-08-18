@@ -1,0 +1,1 @@
+export const NAME_SEDE = 'NAME_SEDE';
