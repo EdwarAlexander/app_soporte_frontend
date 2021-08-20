@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getTokenSession} from '../util/auth';
+/*import {getTokenSession} from '../util/auth';*/
 
 const http = axios.create({
     baseURL: process.env.REACT_APP_URL

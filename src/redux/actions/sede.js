@@ -1,7 +1,7 @@
 import http from '../../services/api';
 import * as sedeType from '../types/sede';
 
-const getSede = () => async(dispatch) => {
+const getSede = () => async (dispatch) => {
     try {
         dispatch({
             type: sedeType.LIST_SEDE_START
@@ -16,7 +16,7 @@ const getSede = () => async(dispatch) => {
             type: sedeType.LIST_SEDE_FAIL,
             payload: {
                 error: true,
-                message: 'Ocurrio un error al obtener los platos'
+                message: 'Ocurrio un error al obtener las Sedes'
             }
         });
     } finally {
@@ -26,6 +26,37 @@ const getSede = () => async(dispatch) => {
     }
 }
 
+const saveSede = () => async (dispatch) => {
+    try {
+        dispatch({
+            type: sedeType.ADD_SEDE_START
+        });
+        const request = {
+            nombre:'sede de prueba2',
+            usuario: 'antanuare'
+        };
+        const response = await http.post('/sedes',request);
+        dispatch({
+            type: sedeType.ADD_SEDE_SUCCESS,
+            payload:[]
+        });
+        
+    } catch (error) {
+        dispatch({
+            type: sedeType.ADD_SEDE_FAIL,
+            payload: {
+                error: true,
+                message: 'Ocurrio un error al registrar la Sede'
+            }
+        });
+    } finally {
+        dispatch({
+            type : sedeType.ADD_SEDE_FINALLY
+        });
+    }
+}
+
 export {
-    getSede
+    getSede,
+    saveSede
 }

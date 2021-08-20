@@ -2,7 +2,7 @@ import * as sedeTypes from '../types/sede';
 
 const initialState = {
     loading: false,
-    data: null,
+    data: [],
     error: {
         error: false,
         message: ''
@@ -24,13 +24,38 @@ export default function sede(state = initialState, action) {
         case sedeTypes.LIST_SEDE_FAIL:
             return {
                 ...state,
-                error:{
+                error: {
                     ...state.error,
                     error: action.error.error,
                     message: action.error.message
                 }
             }
         case sedeTypes.LIST_SEDE_FINALLY:
+            return {
+                ...state,
+                loading: false
+            }
+
+        case sedeTypes.ADD_SEDE_START:
+            return {
+                ...state,
+                loading: true
+            }
+        case sedeTypes.ADD_SEDE_SUCCESS:
+            return {
+                ...state,
+                //data: action.payload
+            }
+        case sedeTypes.ADD_SEDE_FAIL:
+            return {
+                ...state,
+                error: {
+                    ...state.error,
+                    error: action.error.error,
+                    message: action.error.message
+                }
+            }
+        case sedeTypes.ADD_SEDE_FINALLY:
             return {
                 ...state,
                 loading: false
