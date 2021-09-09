@@ -1,4 +1,4 @@
-import * as sedeTypes from '../types/sede';
+import * as equipoTypes  from '../types/equipo';
 
 const initialState = {
     loading: false,
@@ -9,19 +9,19 @@ const initialState = {
     }
 }
 
-export default function sede(state = initialState, action) {
+export default function equipo(state= initialState,action){
     switch (action.type) {
-        case sedeTypes.LIST_SEDE_START:
+        case equipoTypes.LIST_EQUIPO_START:
             return {
                 ...state,
                 loading: true
             }
-        case sedeTypes.LIST_SEDE_SUCCESS:
+        case equipoTypes.LIST_EQUIPO_SUCCESS:
             return {
                 ...state,
                 data: action.payload
             }
-        case sedeTypes.LIST_SEDE_FAIL:
+        case equipoTypes.LIST_EQUIPO_FAIL:
             return {
                 ...state,
                 error: {
@@ -30,23 +30,23 @@ export default function sede(state = initialState, action) {
                     message: action.error.message
                 }
             }
-        case sedeTypes.LIST_SEDE_FINALLY:
+        case equipoTypes.LIST_EQUIPO_FINALLY:
             return {
                 ...state,
                 loading: false
             }
 
-        case sedeTypes.ADD_SEDE_START:
+        case equipoTypes.ADD_EQUIPO_START:
             return {
                 ...state,
                 loading: true
             }
-        case sedeTypes.ADD_SEDE_SUCCESS:
+        case equipoTypes.ADD_EQUIPO_SUCCESS:
             return {
                 ...state,
                 data: [...state.data, action.payload]
             }
-        case sedeTypes.ADD_SEDE_FAIL:
+        case equipoTypes.ADD_EQUIPO_FAIL:
             return {
                 ...state,
                 error: {
@@ -55,7 +55,7 @@ export default function sede(state = initialState, action) {
                     message: action.error.message
                 }
             }
-        case sedeTypes.ADD_SEDE_FINALLY:
+        case equipoTypes.ADD_EQUIPO_FINALLY:
             return {
                 ...state,
                 loading: false
@@ -63,4 +63,4 @@ export default function sede(state = initialState, action) {
         default:
             return state
     }
-};
+}

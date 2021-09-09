@@ -1,27 +1,27 @@
-import * as sedeTypes from '../types/sede';
+import * as ticketTypes from '../types/ticket';
 
 const initialState = {
     loading: false,
-    data: null,
+    data: [],
     error: {
         error: false,
         message: ''
     }
 }
 
-export default function sede(state = initialState, action) {
+export default function ticket(state = initialState, action) {
     switch (action.type) {
-        case sedeTypes.LIST_SEDE_START:
+        case ticketTypes.LIST_TICKET_START:
             return {
                 ...state,
                 loading: true
             }
-        case sedeTypes.LIST_SEDE_SUCCESS:
+        case ticketTypes.LIST_TICKET_SUCCESS:
             return {
                 ...state,
                 data: action.payload
             }
-        case sedeTypes.LIST_SEDE_FAIL:
+        case ticketTypes.LIST_TICKET_FAIL:
             return {
                 ...state,
                 error: {
@@ -30,23 +30,23 @@ export default function sede(state = initialState, action) {
                     message: action.error.message
                 }
             }
-        case sedeTypes.LIST_SEDE_FINALLY:
+        case ticketTypes.LIST_TICKET_FINALLY:
             return {
                 ...state,
                 loading: false
             }
 
-        case sedeTypes.ADD_SEDE_START:
+        case ticketTypes.ADD_TICKET_START:
             return {
                 ...state,
                 loading: true
             }
-        case sedeTypes.ADD_SEDE_SUCCESS:
+        case ticketTypes.ADD_TICKET_SUCCESS:
             return {
                 ...state,
                 data: [...state.data, action.payload]
             }
-        case sedeTypes.ADD_SEDE_FAIL:
+        case ticketTypes.ADD_TICKET_FAIL:
             return {
                 ...state,
                 error: {
@@ -55,7 +55,7 @@ export default function sede(state = initialState, action) {
                     message: action.error.message
                 }
             }
-        case sedeTypes.ADD_SEDE_FINALLY:
+        case ticketTypes.ADD_TICKET_FINALLY:
             return {
                 ...state,
                 loading: false
@@ -63,4 +63,4 @@ export default function sede(state = initialState, action) {
         default:
             return state
     }
-};
+}

@@ -26,21 +26,21 @@ const getSede = () => async (dispatch) => {
     }
 }
 
-const saveSede = () => async (dispatch) => {
+const saveSede = ({sede}) => async (dispatch) => {
     try {
         dispatch({
             type: sedeType.ADD_SEDE_START
         });
         const request = {
-            nombre:'sede de prueba2',
+            nombre: sede,
             usuario: 'antanuare'
         };
-        const response = await http.post('/sedes',request);
+        const response = await http.post('/sedes', request);
         dispatch({
             type: sedeType.ADD_SEDE_SUCCESS,
-            payload:[]
+            payload: response.data.info[0]
         });
-        
+
     } catch (error) {
         dispatch({
             type: sedeType.ADD_SEDE_FAIL,
@@ -51,7 +51,7 @@ const saveSede = () => async (dispatch) => {
         });
     } finally {
         dispatch({
-            type : sedeType.ADD_SEDE_FINALLY
+            type: sedeType.ADD_SEDE_FINALLY
         });
     }
 }

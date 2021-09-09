@@ -119,7 +119,6 @@ function Layout(props) {
                     </div>
                 </List>
                 <Divider />
-                <List>menu 2</List>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />

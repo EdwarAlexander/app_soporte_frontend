@@ -1,4 +1,4 @@
-import * as sedeTypes from '../types/sede';
+import * as soporteTypes from '../types/soporte';
 
 const initialState = {
     loading: false,
@@ -9,19 +9,19 @@ const initialState = {
     }
 }
 
-export default function sede(state = initialState, action) {
+export default function soporte(state = initialState, action) {
     switch (action.type) {
-        case sedeTypes.LIST_SEDE_START:
+        case soporteTypes.LIST_SOPORTE_START:
             return {
                 ...state,
                 loading: true
             }
-        case sedeTypes.LIST_SEDE_SUCCESS:
+        case soporteTypes.LIST_SOPORTE_SUCCESS:
             return {
                 ...state,
                 data: action.payload
             }
-        case sedeTypes.LIST_SEDE_FAIL:
+        case soporteTypes.LIST_SOPORTE_FAIL:
             return {
                 ...state,
                 error: {
@@ -30,23 +30,23 @@ export default function sede(state = initialState, action) {
                     message: action.error.message
                 }
             }
-        case sedeTypes.LIST_SEDE_FINALLY:
+        case soporteTypes.LIST_SOPORTE_FINALLY:
             return {
                 ...state,
                 loading: false
             }
 
-        case sedeTypes.ADD_SEDE_START:
+        case soporteTypes.ADD_SOPORTE_START:
             return {
                 ...state,
                 loading: true
             }
-        case sedeTypes.ADD_SEDE_SUCCESS:
+        case soporteTypes.ADD_SOPORTE_SUCCESS:
             return {
                 ...state,
                 data: [...state.data, action.payload]
             }
-        case sedeTypes.ADD_SEDE_FAIL:
+        case soporteTypes.ADD_SOPORTE_FAIL:
             return {
                 ...state,
                 error: {
@@ -55,7 +55,7 @@ export default function sede(state = initialState, action) {
                     message: action.error.message
                 }
             }
-        case sedeTypes.ADD_SEDE_FINALLY:
+        case soporteTypes.ADD_SOPORTE_FINALLY:
             return {
                 ...state,
                 loading: false
@@ -63,4 +63,4 @@ export default function sede(state = initialState, action) {
         default:
             return state
     }
-};
+}

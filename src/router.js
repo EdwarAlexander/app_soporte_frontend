@@ -16,13 +16,13 @@ function MainRouter() {
     return (
         <Router>
             <Switch>
-                <Route exect path='/equipo' component={Equipo}></Route>
-                <Route exect path='/estado' component={Estado}></Route>
+                <Route exact path='/equipo' component={Equipo}></Route>
+                <Route exact path='/estado' component={Estado}></Route>
                 <Route exact path='/login' component={Login}></Route>
-                <Route exect path='/nivel' component={Nivel}></Route>
+                <Route exact path='/nivel' component={Nivel}></Route>
                 <Route exact path='/sede' component={Sede}></Route>
-                <Route exect path='/soporte' component={Soporte}></Route>
-                <Route exect path='/ticket' component={Ticket}></Route>
+                <Route exact path='/soporte' component={Soporte}></Route>
+                <Route exact path='/ticket' component={Ticket}></Route>
             </Switch>
         </Router>
     );

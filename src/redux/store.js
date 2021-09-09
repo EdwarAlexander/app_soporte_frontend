@@ -19,5 +19,6 @@ export default function configureStore(initialState = {}) {
     composeEnhancers(...enhancers),
   )
 
+ 
   return store
 }

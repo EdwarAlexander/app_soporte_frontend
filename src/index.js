@@ -8,11 +8,17 @@ import { Provider } from 'react-redux';
 const initialState = {};
 const store = configureStore(initialState);
 
-ReactDOM.render(
+/*ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <MainRouter />
     </Provider>
   </React.StrictMode>,
+  document.getElementById('root')
+);*/
+ReactDOM.render(
+  <Provider store={store}>
+    <MainRouter />
+  </Provider>,
   document.getElementById('root')
 );
