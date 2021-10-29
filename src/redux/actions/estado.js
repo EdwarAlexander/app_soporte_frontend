@@ -16,7 +16,7 @@ const getEstado = () => async (dispatch) => {
             type: estadoType.LIST_ESTADO_FAIL,
             payload: {
                 error: true,
-                message: 'Ocurrio un error al obtener las Nivel'
+                message: 'Ocurrio un error al obtener los estados'
             }
         });
     } finally {

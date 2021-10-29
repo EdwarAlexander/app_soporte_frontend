@@ -1,12 +1,20 @@
 import { Avatar, Button, CssBaseline, Grid, Paper, TextField, Typography } from "@material-ui/core";
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { styleLogin } from "../util/styleLogin";
+import * as userActions from "../redux/actions/usuario";
+import { useDispatch } from "react-redux";
 
 const useStyles = styleLogin();
 
 
 function Login() {
     const classes = useStyles();
+    const dispatch = useDispatch();
+
+    function initLogin(e) {
+        e.preventDefault();
+        dispatch(userActions.doLogin());
+    }
     return (
         <Grid container component="main" className={classes.root}>
             <CssBaseline />
@@ -19,7 +27,7 @@ function Login() {
                     <Typography component="h1" variant="h5">
                         Ingreso al Sistema
                     </Typography>
-                    <form className={classes.form} noValidate>
+                    <form onSubmit={initLogin} className={classes.form} noValidate>
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -49,8 +57,9 @@ function Login() {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            
                         >
-                        Ingresar
+                            Ingresar
                         </Button>
                     </form>
                 </div>
